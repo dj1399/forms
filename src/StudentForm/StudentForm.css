@@ -64,6 +64,16 @@
   border-radius: 7px;
   padding-right: 39px;
   margin-bottom: 48px;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #29517c !important;
+  padding-top: 12px;
+  padding-left: 14px !important;
+  padding-bottom: 9px;
 }
 .row3 {
   margin-bottom: 82px;
@@ -95,6 +105,15 @@
 }
 .Student_capcha {
   margin-right: 28px;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 37px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+
+  color: #29517c;
 }
 .row4 {
   margin-bottom: 20px !important;

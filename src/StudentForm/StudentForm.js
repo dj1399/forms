@@ -57,9 +57,17 @@ export default class StudentForm extends React.Component
                                 </div>
                                 <div className="form-row row1">
                                 <input type="name" class="form-control col " id="Student_input" placeholder="Date of Birth"/>
-                                <input type="name" class="form-control col" id="Student_input" placeholder="Blood Group"/>
-                                <input type="name" class="form-control col" id="Student_input" placeholder="Gender"/>
-                                </div>
+                                <select  class="form-control col" id="Student_input" placeholder="Blood Group">
+                                    <option disabled selected>Blood Group</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    </select>
+                                    <select  class="form-control col" id="Student_input" >
+                                    <option disabled selected>Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    </select>
+                                    </div>
                                 <div className="form-row row1">
                                 <input type="name" class="form-control col-md-4 col-sm-12 " id="Student_input" placeholder="Mobile Number 1"/>
                                 <input type="name" class="form-control col-md-4 col-sm-12" id="Student_input" placeholder="Mobile Number 2"/>
@@ -98,17 +106,21 @@ export default class StudentForm extends React.Component
                             <img src={student} className="Student_img"></img>
                            </div>
                            <div className="col-md-6 no-gutters" style={{padding:"0px"}}>
-                            <div className="Student_head1">
+                            <div className="Student_head1" id="desktop">
                                 Come Join Us
                                 </div>
-                            <div className="Student_head2">
+                            <div className="Student_head2" id="desktop">
                                 You are so close
                                 </div>
                                 <div className="form-row row1">
                                 <input class="form-control col " id="Student_input" placeholder="College Name"/>
                                 </div>
                                 <div className="form-row row1">
-                                <input type="name" class="form-control col " id="Student_input" placeholder="Year of Passing"/>
+                                <select  class="form-control col" id="Student_input" >
+                                    <option disabled selected>Year of Passing</option>
+                                    <option>2019</option>
+                                    <option>2020</option>
+                                    </select>
                                 <input type="name" class="form-control col" id="Student_input" placeholder="Member Type"/>
                                 <div  class="col" ></div>
                                 </div>
@@ -116,8 +128,9 @@ export default class StudentForm extends React.Component
                                 <div className="Student_cap" >Capcha</div>
                                 </div>
                                 <div className="form-row row4">
-                                <div className ="Student_capcha" >RTX3090</div>
-                                <input className ="Student_entercap" placeholder="Enter Capcha"/>
+                                <div className ="form-control col Student_capcha" >RTX3090</div>
+                                <input className ="form-control col Student_input" placeholder="Enter Capcha"/>
+                                <div className=" col"></div>
 
                                 </div>
                                 <button className ="Student_submit"> Submit</button>
