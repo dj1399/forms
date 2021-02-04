@@ -157,7 +157,20 @@
   padding: 2px;
   margin-right: 16px;
 }
+.Student_back {
+  cursor: pointer;
+  margin-right: 96px;
+  margin-left: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  line-height: 21px;
 
+  color: #45678c;
+}
+.row5 {
+  margin-top: 97px;
+}
 @media (max-width: 500px) {
   #Student_input {
     margin-bottom: 25px;
@@ -167,6 +180,9 @@
     background: #f2f2f2;
     width: 100%;
     margin-bottom: 20px;
+  }
+  .row {
+    margin-left: 0px !important;
   }
   .row1 {
     margin-bottom: 0px;

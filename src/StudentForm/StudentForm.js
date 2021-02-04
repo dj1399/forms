@@ -2,7 +2,7 @@ import React  from "react";
 import "./StudentForm.css";
 import student from "../Images/Ellipse 213.svg";
 import Date from "./date";
-  
+import arrow from "../Images/arrow.svg" ;
 export default class StudentForm extends React.Component
 {
     
@@ -27,6 +27,16 @@ export default class StudentForm extends React.Component
                   
               })
             }
+           handleClick = (event) =>
+           {
+            event.preventDefault()
+            this.setState({
+                firstDiv:true,
+                secondDiv:false,
+                
+            })
+          }
+           
             changeColor1 = (event) =>
             {
                  event.preventDefault()
@@ -192,13 +202,20 @@ export default class StudentForm extends React.Component
                                 <div className="Student_cap" >Capcha</div>
                                 </div>
                                 <div className="form-row row4">
-                                <div className ="form-control col Student_capcha" >RTX3090</div>
-                                <input className ="form-control col Student_input" placeholder="Enter Capcha"/>
+                                <div className ="col Student_capcha" >RTX3090</div>
+                                <input className ="form-control col " id="Student_input" placeholder="Enter Capcha"/>
                                 <div className=" col"></div>
 
                                 </div>
-                               
+                                <div className="row5 row d-flex align-content-center">
+                                {/* <div className="col-md-6"> */}
+                                <a  onClick={this.handleClick} className="Student_back"  ><span><img src={arrow}></img> </span>Back
+                                </a>
+                                {/* </div>
+                                <div className="col-md-6"> */}
                                 <button className ="Student_submit"> Submit</button>
+                                {/* </div> */}
+                                </div>
                                 <button className="Student_page" onClick={this.changeColor1} style={{backgroundColor: this.state.bgColor1,color:this.state.color1,borderColor:this.state.borderColor1}}>1</button>
                                     <button className="Student_page" onClick={this.changeColor2} style={{backgroundColor: this.state.bgColor2,color:this.state.color2,borderColor:this.state.borderColor2}} >2</button>
                                     </div>
