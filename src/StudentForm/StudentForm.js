@@ -48,15 +48,15 @@ export default class StudentForm extends React.Component
                                 
                                 
                                 <div className="form-row row1">
-                                <input type="name" class="form-control col-md-4 col-sm-12 " id="Student_input" placeholder="First Name"/>
-                                <input type="name" class="form-control col-md-4 col-sm-12" id="Student_input" placeholder="Middle Name"/>
-                                <input type="name" class="form-control col-md-4 col-sm-12" id="Student_input" placeholder="Last Name"/>
+                                <input type="text" class="form-control col-md-4 col-sm-12 no-gutters" id="Student_input" placeholder="First Name" style={{marginRight:"5px"}}/>
+                                <input type="text" class="form-control col-md-4 col-sm-12" id="Student_input" placeholder="Middle Name"/>
+                                <input type="text" class="form-control col-md-4 col-sm-12" id="Student_input" placeholder="Last Name"/>
                                 </div>
                                 <div className="form-row row2">
-                                <textarea className="Student_add">Address</textarea>
+                                <textarea className="Student_add" placeholder="Address"></textarea>
                                 </div>
                                 <div className="form-row row1">
-                                <input type="name" class="form-control col " id="Student_input" placeholder="Date of Birth"/>
+                                <input type="date" class="form-control col " id="Student_input" placeholder="Date of Birth"/>
                                 <select  class="form-control col" id="Student_input" placeholder="Blood Group">
                                     <option disabled selected>Blood Group</option>
                                     <option>1</option>

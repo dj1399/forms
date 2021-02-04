@@ -1,3 +1,6 @@
+.row {
+  width: 100%;
+}
 .Student_first {
   height: 100vh !important;
 }
@@ -105,7 +108,7 @@
 }
 .Student_capcha {
   margin-right: 28px;
-  font-family: SF Pro Display;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 37px;
