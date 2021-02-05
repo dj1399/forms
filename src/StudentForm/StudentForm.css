@@ -171,6 +171,16 @@
 .row5 {
   margin-top: 97px;
 }
+.Student_page1 {
+  text-align: right;
+  margin-left: 514px;
+  margin-top: 30px !important;
+}
+.Student_page2 {
+  margin-top: 195px;
+  margin-left: 514px;
+  margin-bottom: 70px;
+}
 @media (max-width: 500px) {
   #Student_input {
     margin-bottom: 25px;
@@ -237,6 +247,16 @@
   .form-row {
     margin-left: 20px;
     margin-right: 20px;
+  }
+  .Student_page1 {
+    align-items: left;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .Student_page2 {
+    align-items: left;
+    margin-left: 0px;
+    margin-top: 0px;
   }
 }
 @media (min-width: 510px) {

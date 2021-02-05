@@ -3,6 +3,9 @@ import "./StudentForm.css";
 import student from "../Images/Ellipse 213.svg";
 import Date from "./date";
 import arrow from "../Images/arrow.svg" ;
+import page2 from "../Images/page2.png";
+import page1 from "../Images/page1.png";
+
 export default class StudentForm extends React.Component
 {
     
@@ -182,13 +185,15 @@ export default class StudentForm extends React.Component
                                     NEXT
                                     </button>
                                     </div>
-                                    <div>
+                                    <img src={page1} className="Student_page1"></img>
+                                    {/* <div>
                                     <button className="Student_page" onClick={this.changeColor1} style={{backgroundColor: this.state.bgColor1,color:this.state.color1,borderColor:this.state.borderColor1}}>1</button>
                                     <button className="Student_page" onClick={this.changeColor2} style={{backgroundColor: this.state.bgColor2,color:this.state.color2,borderColor:this.state.borderColor2}} >2</button>
-                                    </div>
+                                    </div> */}
                                     {/* <div className="page">
                                     <Pagination count={2} color="primary" onClick={this.changePage} />
                                     </div> */}
+
                            </div>
                            </div>
                    </div>
@@ -251,8 +256,13 @@ export default class StudentForm extends React.Component
                                 <button className ="Student_submit"> Submit</button>
                                 {/* </div> */}
                                 </div>
-                                <button className="Student_page" onClick={this.changeColor1} style={{backgroundColor: this.state.bgColor1,color:this.state.color1,borderColor:this.state.borderColor1}}>1</button>
-                                    <button className="Student_page" onClick={this.changeColor2} style={{backgroundColor: this.state.bgColor2,color:this.state.color2,borderColor:this.state.borderColor2}} >2</button>
+                                {/* <button className="Student_page" onClick={this.changeColor1} style={{backgroundColor: this.state.bgColor1,color:this.state.color1,borderColor:this.state.borderColor1}}>1</button>
+                                    <button className="Student_page" onClick={this.changeColor2} style={{backgroundColor: this.state.bgColor2,color:this.state.color2,borderColor:this.state.borderColor2}} >2</button> */}
+                                    
+                                    <img src={page2} className="Student_page2"></img>
+                                    {/* <div className="col align-items-start">
+                                    <img src={page2} className="Student_page2"></img>
+                                      </div>   */}
                                     </div>
                                     </div>
                                     </div>
