@@ -175,6 +175,9 @@
   #Student_input {
     margin-bottom: 25px;
   }
+  .desk {
+    display: none;
+  }
   .mobile {
     height: 468px;
     background: #f2f2f2;
@@ -238,6 +241,9 @@
 }
 @media (min-width: 510px) {
   .mobile {
+    display: none;
+  }
+  .mob {
     display: none;
   }
 }

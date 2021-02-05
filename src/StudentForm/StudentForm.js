@@ -95,7 +95,7 @@ export default class StudentForm extends React.Component
                                 </div>
                                 
                                 
-                                <div className="form-row row1">
+                                <div className="form-row row1 ">
                                 <div className="col-md-4 col-sm-12 no-gutters ">
                                 <input type="text" class="form-control " id="Student_input" placeholder="First Name" />
                                 </div>
@@ -109,15 +109,35 @@ export default class StudentForm extends React.Component
                                 <div className="form-row row2">
                                 <textarea className="Student_add" placeholder="Address"></textarea>
                                 </div>
-                                <div className="form-row row1">
+                                <div className="form-row row1 mob">
+                                <div className="col-4  no-gutters">
+                                    <select  class="form-control col" id="Student_input" >
+                                    <option disabled selected>Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    </select>
+                                    </div>
+                                <div className="col-4  no-gutters">
+                                <input type="date" class="form-control col " id="Student_input" placeholder="Date of Birth"/>
+                                </div>
+                                <div className="col-2">
+                                    </div>
+                                </div>
+                                <div className="form-row row1 desk">
                                 <div className="col-md-4 col-sm-12 no-gutters">
                                 <input type="date" class="form-control col " id="Student_input" placeholder="Date of Birth"/>
                                 </div>
                                 <div className="col-md-4 col-sm-12 no-gutters">
                                 <select  class="form-control col" id="Student_input" placeholder="Blood Group">
                                     <option disabled selected>Blood Group</option>
-                                    <option>1</option>
-                                    <option>2</option>
+                                    <option>A+</option>
+                                    <option>B+</option>
+                                    <option>O+</option>
+                                    <option>A-</option>
+                                    <option>B-</option>
+                                    <option>O-</option>
+                                    <option>B+</option>
+                                    <option>B+</option>
                                     </select>
                                     </div>
                                     <div className="col-md-4 col-sm-12 no-gutters">
@@ -142,6 +162,21 @@ export default class StudentForm extends React.Component
                                 {/* <input type="name" class="form-control col" id="Student_input" placeholder="Mobile Number 2"/>
                                 <div  class="col" ></div> */}
                                 </div>
+                                <div className="form-row row1 mob">
+                                <div className="col-5 no-gutters">
+                                <select  class="form-control col" id="Student_input" placeholder="Blood Group">
+                                    <option disabled selected>Blood Group</option>
+                                    <option>A+</option>
+                                    <option>B+</option>
+                                    <option>O+</option>
+                                    <option>A-</option>
+                                    <option>B-</option>
+                                    <option>O-</option>
+                                    <option>B+</option>
+                                    <option>B+</option>
+                                    </select>
+                                    </div>
+                                    </div>
                                 <div>
                                 <button className="Student_next" onClick={this.handleClickNext}>
                                     NEXT
