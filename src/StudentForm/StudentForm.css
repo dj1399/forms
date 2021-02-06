@@ -1,14 +1,50 @@
-.row {
-  width: 100%;
+/* 
+.Student_first {
+  height: 100%;
+} */
+.form-row > .col,
+.form-row > [class*="col-"] {
+  padding-right: 15px;
+  padding-left: 0px;
+}
+.Student-row {
+  height: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .Student_first {
-  height: 100vh !important;
+  height: 100vh;
+}
+.Student {
+  height: 100vh;
 }
 .Student_pic {
   background-color: grey;
   /* height: 100vh; */
 }
-
+.Student_cap {
+  margin-left: 8px;
+  text-align: left;
+}
+.capcha {
+  width: fit-content;
+  height: 38px;
+  border: 1px solid #29517c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  margin-top: 25px;
+  margin-left: 8px;
+}
+.Student_capcha {
+  text-align: left;
+  margin-left: -10px;
+  align-items: unset;
+}
+.border-capcha {
+  border-radius: 7px;
+  border: 1px solid #29517c;
+  padding: 10px 10px 10px 10px;
+}
 .Student_head1 {
   margin-top: 92px;
   font-family: "Poppins";
@@ -39,23 +75,18 @@
   margin-right: 39px;
 }
 #Student_input {
-  /* padding-right: 28px; */
-  /* margin-right: 15px !important; */
-  /* margin-left: 0px !important; */
   height: 38px;
   border: 1px solid #29507c;
   box-sizing: border-box;
   border-radius: 7px;
-  font-family: SF Pro Display;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  /* identical to box height */
-  color: #29517c !important;
-  padding-top: 12px;
+  color: #390969 !important;
   padding-left: 14px !important;
-  padding-bottom: 9px;
 }
 .row1 {
   margin-bottom: 44px;
@@ -166,7 +197,7 @@
   font-size: 18px;
   line-height: 21px;
 
-  color: #45678c;
+  color: #29517c !important;
 }
 .row5 {
   margin-top: 97px;
@@ -176,14 +207,47 @@
   margin-left: 514px;
   margin-top: 30px !important;
 }
-.Student_page2 {
+/* .Student_page2 {
   margin-top: 195px;
   margin-left: 514px;
   margin-bottom: 70px;
+} */
+.Student_page1 {
+  margin-bottom: 50px;
 }
 @media (max-width: 500px) {
   #Student_input {
     margin-bottom: 25px;
+    padding: 0px;
+  }
+  .form-row > .col,
+  .form-row > [class*="col-"] {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .Student_cap {
+    margin-left: 8px;
+    text-align: left;
+  }
+  .capcha {
+    width: fit-content;
+    height: 38px;
+    border: 1px solid #29517c;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-left: 0px;
+    padding-left: 10px !important;
+  }
+  .Student_capcha {
+    text-align: left;
+    margin-left: -10px;
+    align-items: unset;
+  }
+  .border-capcha {
+    border-radius: 7px;
+    border: 1px solid #29517c;
+    padding: 10px 10px 10px 10px;
+    margin-left: 0px;
   }
   .desk {
     display: none;
@@ -230,7 +294,8 @@
   }
   .Student_head2_mob {
     margin-left: 20px;
-    font-family: SF Pro Display;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-style: normal;
     font-weight: 200;
     font-size: 28px;
@@ -251,13 +316,24 @@
   .Student_page1 {
     align-items: left;
     margin-left: 0px;
-    margin-top: 0px;
+    margin-top: 30px;
+    margin-bottom: 100px;
   }
+}
+/* Big tablets */
+@media (min-width: 800px) and (max-width: 1200px) {
   .Student_page2 {
     align-items: left;
     margin-left: 0px;
-    margin-top: 0px;
+    margin-top: 30px;
+    margin-bottom: 100px;
   }
+  .SFSecound_row {
+    height: 100vh;
+  }
+}
+.Student_pic {
+  height: 100vh;
 }
 @media (min-width: 510px) {
   .mobile {
@@ -265,5 +341,43 @@
   }
   .mob {
     display: none;
+  }
+  .Student_head2_mob {
+    margin-left: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 28px;
+    line-height: 33px;
+    color: #29517c;
+    text-align: left;
+    margin-left: 20px;
+  }
+}
+@media (min-width: 500px) and (max-width: 800px) {
+  .Student_page1 {
+    margin-left: 30px;
+    margin-top: 30px !important;
+    text-align: right;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 800px) {
+  .SFSecound_row {
+    height: 100vh;
+  }
+  .Student_head2 {
+    font-size: 35px;
+  }
+  .Student_page2 {
+    margin-top: 70px;
+  }
+}
+/* mobile */
+@media screen and (max-width: 480px) {
+  .Student_page2 {
+    margin-top: 30px;
+    margin-bottom: 100px;
   }
 }
