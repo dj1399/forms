@@ -2,13 +2,22 @@
 .Student_first {
   height: 100%;
 } */
+.Student_BackBtn {
+  cursor: pointer;
+}
+.Student_img {
+  padding-top: 50px;
+}
+.SFSecound_row {
+  height: 100vh;
+}
 .form-row > .col,
 .form-row > [class*="col-"] {
   padding-right: 15px;
   padding-left: 0px;
 }
 .Student-row {
-  height: 100%;
+  height: 100vh;
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -74,7 +83,7 @@
   margin-left: 46px;
   margin-right: 39px;
 }
-#Student_input {
+.Student_input {
   height: 38px;
   border: 1px solid #29507c;
   box-sizing: border-box;
@@ -216,7 +225,7 @@
   margin-bottom: 50px;
 }
 @media (max-width: 500px) {
-  #Student_input {
+  .udent_input {
     margin-bottom: 25px;
     padding: 0px;
   }
@@ -270,9 +279,7 @@
   .row3 {
     margin-bottom: 0px;
   }
-  .Student_add {
-    margin-bottom: 25px !important;
-  }
+
   #desktop {
     display: none;
   }
@@ -333,7 +340,7 @@
   }
 }
 .Student_pic {
-  height: 100vh;
+  /* height: 100vh; */
 }
 @media (min-width: 510px) {
   .mobile {
@@ -373,11 +380,26 @@
   .Student_page2 {
     margin-top: 70px;
   }
+  .Student_img {
+    padding-top: 100px;
+    height: 300px;
+    width: 300px;
+  }
+  .form-row {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 /* mobile */
 @media screen and (max-width: 480px) {
   .Student_page2 {
     margin-top: 30px;
     margin-bottom: 100px;
+  }
+  .StudentMobile_mp {
+    margin-top: 20px;
+  }
+  .Student_add {
+    margin-bottom: 0;
   }
 }
