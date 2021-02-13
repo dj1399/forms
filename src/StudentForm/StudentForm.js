@@ -1,12 +1,13 @@
 import React from "react";
 import "./StudentForm.css";
 import student from "../Images/Ellipse 213.svg";
-import Date from "./date";
 import arrow from "../Images/arrow.svg";
 import page2 from "../Images/page2.png";
 import page1 from "../Images/page1.png";
 import { sendStudentForm } from "../DataService/StudentForm";
 import Recaptcha from "react-google-invisible-recaptcha";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 export default class StudentForm extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +34,26 @@ export default class StudentForm extends React.Component {
       collegeName: "",
       yearOfPassing: "",
       memberType: "",
+      selectYear: "2021",
+      selectMonth: "January",
     };
+    this.range = this.range.bind(this);
+    this.handleDobChange = this.handleDobChange.bind(this);
+    this.handleRegDateChange = this.handleRegDateChange.bind(this);
+  }
+  handleDobChange(d) {
+    this.setState({ dateOfBirth: d });
+  }
+  range(start, end) {
+    var ans = [];
+    for (let i = start; i <= end; i++) {
+      ans.push(i);
+    }
+    return ans;
+  }
+  handleRegDateChange(d) {
+    this.setState({ dateOfRegistration: d });
+    // this.handleTitlePaper = this.handleTitlePaper.bind(this);
   }
   onResolved = () => {
     this.setState({ messageSent: true });
@@ -123,6 +143,22 @@ export default class StudentForm extends React.Component {
       });
   };
   render() {
+    var d = new Date();
+    const years = this.range(1940, 2021);
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     return (
       <div className="Student form_main">
         {
@@ -163,7 +199,7 @@ export default class StudentForm extends React.Component {
                     <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                       <input
                         type="text"
-                        class="form-control Student_input"
+                        className="form-control Student_input"
                         id="middleName"
                         name="middleName"
                         placeholder="Middle Name"
@@ -176,7 +212,7 @@ export default class StudentForm extends React.Component {
                     <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                       <input
                         type="text"
-                        class="form-control Student_input"
+                        className="form-control Student_input"
                         id="lastName"
                         name="lastName"
                         placeholder="Last Name"
@@ -197,9 +233,75 @@ export default class StudentForm extends React.Component {
                       required
                     ></textarea>
                   </div>
-                  <div className="form-row row1 desk">
+                  <div className="form-row row1 ">
                     <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <input
+                      <DatePicker
+                        // calendarClassName="col-md-4 col-12"
+                        // className="col-md-4 col-12"
+                        renderCustomHeader={({
+                          date,
+                          changeYear,
+                          changeMonth,
+                          decreaseMonth,
+                          increaseMonth,
+                          prevMonthButtonDisabled,
+                          nextMonthButtonDisabled,
+                        }) => (
+                          <div
+                            style={{
+                              margin: 10,
+                              display: "flex",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <button
+                              onClick={decreaseMonth}
+                              disabled={prevMonthButtonDisabled}
+                            >
+                              {"<"}
+                            </button>
+                            <select
+                              value={this.state.selectYear}
+                              onChange={({ target: { value } }) => {
+                                changeYear(value);
+                                this.setState({ selectYear: value });
+                              }}
+                            >
+                              {years.map((option) => (
+                                <option key={option} value={option}>
+                                  {option}
+                                </option>
+                              ))}
+                            </select>
+
+                            <select
+                              value={this.state.selectMonth}
+                              onChange={({ target: { value } }) => {
+                                changeMonth(months.indexOf(value));
+                                this.setState({ selectMonth: value });
+                              }}
+                            >
+                              {months.map((option) => (
+                                <option key={option} value={option}>
+                                  {option}
+                                </option>
+                              ))}
+                            </select>
+
+                            <button
+                              onClick={increaseMonth}
+                              disabled={nextMonthButtonDisabled}
+                            >
+                              {">"}
+                            </button>
+                          </div>
+                        )}
+                        selected={this.state.dateOfBirth}
+                        onChange={this.handleDobChange}
+                        className="personalDOB col-12"
+                        placeholderText="Date of Birth"
+                      ></DatePicker>
+                      {/*   <input
                         type="date"
                         class="Student_input form-control col "
                         id="DateOfBirth"
@@ -207,11 +309,11 @@ export default class StudentForm extends React.Component {
                         onChange={this.handleChange}
                         placeholder="Date of Birth"
                         required
-                      />
+                      /> */}
                     </div>
                     <div className="col-md-4 col-12 no-gutters">
                       <select
-                        class="Student_input form-control StudentMobile_mp"
+                        className="Student_input form-control StudentMobile_mp"
                         id="bloodGroup"
                         required
                         name="bloodGroup"
@@ -233,7 +335,7 @@ export default class StudentForm extends React.Component {
                     </div>
                     <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                       <select
-                        class="form-control Student_input"
+                        className="form-control Student_input"
                         id="gender"
                         required
                         name="gender"
@@ -250,7 +352,7 @@ export default class StudentForm extends React.Component {
                   <div className="form-row row1">
                     <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                       <input
-                        class="form-control Student_input"
+                        className="form-control Student_input"
                         id="contactNo"
                         name="contactNo"
                         required
@@ -263,7 +365,7 @@ export default class StudentForm extends React.Component {
                     </div>
                     <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                       <input
-                        class="form-control Student_input"
+                        className="form-control Student_input"
                         id="alternateNo"
                         name="alternateNo"
                         pattern="[1-9]{1}[0-9]{9}"
@@ -283,7 +385,7 @@ export default class StudentForm extends React.Component {
                       id="email"
                       onChange={this.handleChange}
                       required
-                      class="form-control col-12 col-md-8 no-gutters Student_input"
+                      className="form-control col-12 col-md-8 no-gutters Student_input"
                       placeholder="Email-id"
                     />
                     {/* <input type="name" class="form-control col" id="Student_input" placeholder="Mobile Number 2"/>
@@ -336,7 +438,7 @@ export default class StudentForm extends React.Component {
                 <div className="form-row row1 StudentMobile_mp">
                   <input
                     type="text"
-                    class="form-control col-12 Student_input"
+                    className="form-control col-12 Student_input"
                     id="collegeName"
                     name="collegeName"
                     placeholder="College Name"
@@ -345,7 +447,7 @@ export default class StudentForm extends React.Component {
                 <div className="form-row row1">
                   <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                     <select
-                      class="form-control Student_input"
+                      className="form-control Student_input"
                       id="yearOfPassing"
                       name="yearOfPassing"
                     >
@@ -359,7 +461,7 @@ export default class StudentForm extends React.Component {
                   <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
                     <input
                       type="text"
-                      class="form-control Student_input"
+                      className="form-control Student_input"
                       id="memberType"
                       onChange={this.handleChange}
                       placeholder="Member Type"
