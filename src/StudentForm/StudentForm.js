@@ -36,6 +36,7 @@ export default class StudentForm extends React.Component {
       memberType: "",
       selectYear: "2021",
       selectMonth: "January",
+      dateOfBirth: "",
     };
     this.range = this.range.bind(this);
     this.handleDobChange = this.handleDobChange.bind(this);
@@ -111,36 +112,58 @@ export default class StudentForm extends React.Component {
   handleSubmit = (event) => {
     console.log(this.state);
     event.preventDefault();
-    this.recaptcha.execute();
+    // this.recaptcha.execute();
+    if (
+      this.state.firstName === "" ||
+      this.state.lastName === "" ||
+      this.state.middleName === "" ||
+      this.state.address === "" ||
+      this.state.dateOfBirth === "" ||
+      this.state.bloodGroup === "" ||
+      this.state.contactNo === "" ||
+      this.state.alternateNo === "" ||
+      this.state.gender === "" ||
+      this.state.email === "" ||
+      this.state.collegeName === "" ||
+      this.state.yearOfPassing === "" ||
+      this.state.memberType === ""
+    ) {
+      alert("Fill in data before submitting");
+    } else if (
+      this.state.contactNo.length !== 10 ||
+      this.state.alternateNo.length !== 10
+    ) {
+      alert("Enter 10 digits number");
+    } else {
+      const data = new FormData();
+      data["firstName"] = this.state.firstName;
+      data["lastName"] = this.state.lastName;
+      data["middleName"] = this.state.middleName;
+      data["address"] = this.state.address;
+      data["DateOfBirth"] = this.state.dateOfBirth;
+      data["bloodGroup"] = this.state.bloodGroup;
+      data["contactNo"] = this.state.contactNo;
+      data["alternateNo"] = this.state.alternateNo;
+      data["gender"] = this.state.gender;
+      data["email"] = this.state.email;
+      data["collegeName"] = this.state.collegeName;
+      data["yearOfPassing"] = this.state.yearOfPassing;
+      data["memberType"] = this.state.memberType;
 
-    const data = new FormData();
-    data["firstName"] = this.state.firstName;
-    data["lastName"] = this.state.lastName;
-    data["middleName"] = this.state.middleName;
-    data["address"] = this.state.address;
-    data["DateOfBirth"] = this.state.DateOfBirth;
-    data["bloodGroup"] = this.state.bloodGroup;
-    data["contactNo"] = this.state.contactNo;
-    data["alternateNo"] = this.state.alternateNo;
-    data["gender"] = this.state.gender;
-    data["email"] = this.state.email;
-    data["collegeName"] = this.state.collegeName;
-    data["yearOfPassing"] = this.state.yearOfPassing;
-    data["memberType"] = this.state.memberType;
-
-    console.log(data);
-    sendStudentForm(data)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.status === "success") {
-          alert("Success " + response.data.message);
-          window.location.reload();
-        }
-      })
-      .catch((err) => {
-        alert(err);
-        console.log(err);
-      });
+      console.log(data);
+      sendStudentForm(data)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.status === "success") {
+            alert("Success " + response.data.message);
+            // window.location.reload();
+          }
+        })
+        .catch((err) => {
+          alert(err);
+          console.log(err);
+        });
+    }
   };
   render() {
     var d = new Date();
@@ -181,127 +204,131 @@ export default class StudentForm extends React.Component {
                   <div className="Student_head2" id="desktop">
                     In Just 2 easy steps
                   </div>
-
-                  <div className="form-row row1 ">
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <input
-                        type="text"
-                        className="form-control Student_input"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="First Name"
-                        required
-                        onChange={this.handleChange}
-                        pattern="[A-Za-z_ ]{1,32}"
-                        title="*ENTER CHARACTER VALUES ONLY"
-                      />
+                  <form>
+                    <div className="form-row row1 ">
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <input
+                          type="text"
+                          className="form-control Student_input"
+                          id="firstName"
+                          name="firstName"
+                          placeholder="First Name"
+                          required
+                          value={this.state.firstName}
+                          onChange={this.handleChange}
+                          pattern="[A-Za-z_ ]{1,32}"
+                          title="*ENTER CHARACTER VALUES ONLY"
+                        />
+                      </div>
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <input
+                          type="text"
+                          className="form-control Student_input"
+                          id="middleName"
+                          name="middleName"
+                          placeholder="Middle Name"
+                          required
+                          onChange={this.handleChange}
+                          value={this.state.middleName}
+                          pattern="[A-Za-z_ ]{1,32}"
+                          title="*ENTER CHARACTER VALUES ONLY"
+                        />
+                      </div>
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <input
+                          type="text"
+                          className="form-control Student_input"
+                          id="lastName"
+                          name="lastName"
+                          placeholder="Last Name"
+                          required
+                          onChange={this.handleChange}
+                          pattern="[A-Za-z_ ]{1,32}"
+                          value={this.state.lastName}
+                          title="*ENTER CHARACTER VALUES ONLY"
+                        />
+                      </div>
                     </div>
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <input
-                        type="text"
-                        className="form-control Student_input"
-                        id="middleName"
-                        name="middleName"
-                        placeholder="Middle Name"
-                        required
+                    <div className="form-row row2">
+                      <textarea
+                        className="Student_add StudentMobile_mp"
+                        name="address"
                         onChange={this.handleChange}
-                        pattern="[A-Za-z_ ]{1,32}"
-                        title="*ENTER CHARACTER VALUES ONLY"
-                      />
-                    </div>
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <input
-                        type="text"
-                        className="form-control Student_input"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Last Name"
+                        id="address"
+                        value={this.state.address}
+                        placeholder="Address"
                         required
-                        onChange={this.handleChange}
-                        pattern="[A-Za-z_ ]{1,32}"
-                        title="*ENTER CHARACTER VALUES ONLY"
-                      />
+                      ></textarea>
                     </div>
-                  </div>
-                  <div className="form-row row2">
-                    <textarea
-                      className="Student_add StudentMobile_mp"
-                      name="address"
-                      onChange={this.handleChange}
-                      id="address"
-                      placeholder="Address"
-                      required
-                    ></textarea>
-                  </div>
-                  <div className="form-row row1 ">
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <DatePicker
-                        // calendarClassName="col-md-4 col-12"
-                        // className="col-md-4 col-12"
-                        renderCustomHeader={({
-                          date,
-                          changeYear,
-                          changeMonth,
-                          decreaseMonth,
-                          increaseMonth,
-                          prevMonthButtonDisabled,
-                          nextMonthButtonDisabled,
-                        }) => (
-                          <div
-                            style={{
-                              margin: 10,
-                              display: "flex",
-                              justifyContent: "center",
-                            }}
-                          >
-                            <button
-                              onClick={decreaseMonth}
-                              disabled={prevMonthButtonDisabled}
-                            >
-                              {"<"}
-                            </button>
-                            <select
-                              value={this.state.selectYear}
-                              onChange={({ target: { value } }) => {
-                                changeYear(value);
-                                this.setState({ selectYear: value });
+                    <div className="form-row row1 ">
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <DatePicker
+                          // calendarClassName="col-md-4 col-12"
+                          // className="col-md-4 col-12"
+                          renderCustomHeader={({
+                            date,
+                            changeYear,
+                            changeMonth,
+                            decreaseMonth,
+                            increaseMonth,
+                            prevMonthButtonDisabled,
+                            nextMonthButtonDisabled,
+                          }) => (
+                            <div
+                              style={{
+                                margin: 10,
+                                display: "flex",
+                                justifyContent: "center",
                               }}
                             >
-                              {years.map((option) => (
-                                <option key={option} value={option}>
-                                  {option}
-                                </option>
-                              ))}
-                            </select>
+                              <button
+                                onClick={decreaseMonth}
+                                disabled={prevMonthButtonDisabled}
+                              >
+                                {"<"}
+                              </button>
+                              <select
+                                value={this.state.selectYear}
+                                onChange={({ target: { value } }) => {
+                                  changeYear(value);
+                                  this.setState({ selectYear: value });
+                                }}
+                              >
+                                {years.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </select>
 
-                            <select
-                              value={this.state.selectMonth}
-                              onChange={({ target: { value } }) => {
-                                changeMonth(months.indexOf(value));
-                                this.setState({ selectMonth: value });
-                              }}
-                            >
-                              {months.map((option) => (
-                                <option key={option} value={option}>
-                                  {option}
-                                </option>
-                              ))}
-                            </select>
+                              <select
+                                value={this.state.selectMonth}
+                                onChange={({ target: { value } }) => {
+                                  changeMonth(months.indexOf(value));
+                                  this.setState({ selectMonth: value });
+                                }}
+                              >
+                                {months.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </select>
 
-                            <button
-                              onClick={increaseMonth}
-                              disabled={nextMonthButtonDisabled}
-                            >
-                              {">"}
-                            </button>
-                          </div>
-                        )}
-                        selected={this.state.dateOfBirth}
-                        onChange={this.handleDobChange}
-                        className="personalDOB col-12"
-                        placeholderText="Date of Birth"
-                      ></DatePicker>
-                      {/*   <input
+                              <button
+                                onClick={increaseMonth}
+                                disabled={nextMonthButtonDisabled}
+                              >
+                                {">"}
+                              </button>
+                            </div>
+                          )}
+                          selected={this.state.dateOfBirth}
+                          onChange={this.handleDobChange}
+                          className="personalDOB col-12"
+                          placeholderText="Date of Birth"
+                        ></DatePicker>
+                        {/*   <input
                         type="date"
                         class="Student_input form-control col "
                         id="DateOfBirth"
@@ -310,107 +337,114 @@ export default class StudentForm extends React.Component {
                         placeholder="Date of Birth"
                         required
                       /> */}
+                      </div>
+                      <div className="col-md-4 col-12 no-gutters">
+                        <select
+                          className="Student_input form-control StudentMobile_mp"
+                          id="bloodGroup"
+                          required
+                          name="bloodGroup"
+                          onChange={this.handleChange}
+                          placeholder="Blood Group"
+                          value={this.state.bloodGroup}
+                        >
+                          <option value="" disabled selected>
+                            Blood Group
+                          </option>
+                          <option value="A+">A+</option>
+                          <option value="B-">B+</option>
+                          <option value="O-">O+</option>
+                          <option value="A-">A-</option>
+                          <option value="B-">B-</option>
+                          <option value="O-">O-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                        </select>
+                      </div>
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <select
+                          className="form-control Student_input"
+                          id="gender"
+                          required
+                          name="gender"
+                          value={this.state.gender}
+                          onChange={this.handleChange}
+                        >
+                          <option disabled value="" selected>
+                            Gender
+                          </option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
                     </div>
-                    <div className="col-md-4 col-12 no-gutters">
-                      <select
-                        className="Student_input form-control StudentMobile_mp"
-                        id="bloodGroup"
-                        required
-                        name="bloodGroup"
-                        onChange={this.handleChange}
-                        placeholder="Blood Group"
-                      >
-                        <option value="" disabled selected>
-                          Blood Group
-                        </option>
-                        <option value="A+">A+</option>
-                        <option value="B-">B+</option>
-                        <option value="O-">O+</option>
-                        <option value="A-">A-</option>
-                        <option value="B-">B-</option>
-                        <option value="O-">O-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                      </select>
+                    <div className="form-row row1">
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <input
+                          className="form-control Student_input"
+                          id="contactNo"
+                          name="contactNo"
+                          required
+                          placeholder="Mobile Number 1"
+                          pattern="[1-9]{1}[0-9]{9}"
+                          value={this.state.contactNo}
+                          title="Number should be of 10 digits only"
+                          type="tel"
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                      <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                        <input
+                          className="form-control Student_input"
+                          id="alternateNo"
+                          name="alternateNo"
+                          pattern="[1-9]{1}[0-9]{9}"
+                          title="Number should be of 10 digits only"
+                          type="tel"
+                          value={this.state.alternateNo}
+                          required
+                          onChange={this.handleChange}
+                          placeholder="Mobile Number 2"
+                        />
+                      </div>
+                      <div class="col"></div>
                     </div>
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <select
-                        className="form-control Student_input"
-                        id="gender"
-                        required
-                        name="gender"
-                        onChange={this.handleChange}
-                      >
-                        <option disabled value="" selected>
-                          Gender
-                        </option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="form-row row1">
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
+                    <div className="form-row row3 StudentMobile_mp">
                       <input
-                        className="form-control Student_input"
-                        id="contactNo"
-                        name="contactNo"
-                        required
-                        placeholder="Mobile Number 1"
-                        pattern="[1-9]{1}[0-9]{9}"
-                        title="Number should be of 10 digits only"
-                        type="tel"
+                        type="email"
+                        name="email"
+                        id="email"
                         onChange={this.handleChange}
-                      />
-                    </div>
-                    <div className="col-md-4 col-12 no-gutters StudentMobile_mp">
-                      <input
-                        className="form-control Student_input"
-                        id="alternateNo"
-                        name="alternateNo"
-                        pattern="[1-9]{1}[0-9]{9}"
-                        title="Number should be of 10 digits only"
-                        type="tel"
                         required
-                        onChange={this.handleChange}
-                        placeholder="Mobile Number 2"
+                        value={this.state.email}
+                        className="form-control col-12 col-md-8 no-gutters Student_input"
+                        placeholder="Email-id"
                       />
-                    </div>
-                    <div class="col"></div>
-                  </div>
-                  <div className="form-row row3 StudentMobile_mp">
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      onChange={this.handleChange}
-                      required
-                      className="form-control col-12 col-md-8 no-gutters Student_input"
-                      placeholder="Email-id"
-                    />
-                    {/* <input type="name" class="form-control col" id="Student_input" placeholder="Mobile Number 2"/>
+                      {/* <input type="name" class="form-control col" id="Student_input" placeholder="Mobile Number 2"/>
                                 <div  class="col" ></div> */}
-                  </div>
+                    </div>
 
-                  <div>
-                    <button
-                      type="button"
-                      className="Student_next StudentMobile_mp"
-                      onClick={this.handleClickNext}
-                    >
-                      NEXT
-                    </button>
-                  </div>
-                  <div className="row form-row d-flex justify-content-end">
-                    <img src={page1} className="Student_page1"></img>
-                  </div>
-                  {/* <div>
+                    <div>
+                      <button
+                        type="submit"
+                        // onClick={this.handleSubmit}
+                        className="Student_next StudentMobile_mp"
+                        onClick={this.handleClickNext}
+                      >
+                        NEXT
+                      </button>
+                    </div>
+                    <div className="row form-row d-flex justify-content-end">
+                      <img src={page1} className="Student_page1"></img>
+                    </div>
+                    {/* <div>
                                     <button className="Student_page" onClick={this.changeColor1} style={{backgroundColor: this.state.bgColor1,color:this.state.color1,borderColor:this.state.borderColor1}}>1</button>
                                     <button className="Student_page" onClick={this.changeColor2} style={{backgroundColor: this.state.bgColor2,color:this.state.color2,borderColor:this.state.borderColor2}} >2</button>
                                     </div> */}
-                  {/* <div className="page">
+                    {/* <div className="page">
                                     <Pagination count={2} color="primary" onClick={this.changePage} />
                                     </div> */}
+                  </form>
                 </div>
               </div>
             </div>
@@ -441,7 +475,9 @@ export default class StudentForm extends React.Component {
                     className="form-control col-12 Student_input"
                     id="collegeName"
                     name="collegeName"
+                    onChange={this.handleChange}
                     placeholder="College Name"
+                    value={this.state.collegeName}
                   />
                 </div>
                 <div className="form-row row1">
@@ -450,6 +486,8 @@ export default class StudentForm extends React.Component {
                       className="form-control Student_input"
                       id="yearOfPassing"
                       name="yearOfPassing"
+                      value={this.state.yearOfPassing}
+                      onChange={this.handleChange}
                     >
                       <option disabled value="" selected>
                         Year of Passing
@@ -466,6 +504,7 @@ export default class StudentForm extends React.Component {
                       onChange={this.handleChange}
                       placeholder="Member Type"
                       name="memberType"
+                      value={this.state.memberType}
                     />
                   </div>
                 </div>
