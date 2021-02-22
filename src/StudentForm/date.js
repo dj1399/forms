@@ -171,7 +171,7 @@ export default class StudentForm extends React.Component {
                   <div className="Student_head2_mob">In Just 2 easy steps</div>
                 </div>
 
-                <div className="Student_pic col-md-6 align-middle">
+                <div className="Student_pic col-md-6 d-flex align-items-center">
                   <img src={student} className="Student_img"></img>
                 </div>
                 <div className="col-md-6 p-0 no-gutters">

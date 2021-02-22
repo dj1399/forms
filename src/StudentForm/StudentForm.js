@@ -1,6 +1,6 @@
 import React from "react";
 import "./StudentForm.css";
-import student from "../Images/Ellipse 213.svg";
+import student from "../Images/Ellipse 213.png";
 import arrow from "../Images/arrow.svg";
 import page2 from "../Images/page2.png";
 import page1 from "../Images/page1.png";
@@ -188,20 +188,24 @@ export default class StudentForm extends React.Component {
           this.state.firstDiv && (
             <div className="Student_first">
               <div className="row Student-row">
-                <div className="mobile">
-                  <img src={student} className="Student_img"></img>
-                  <div className="Student_head_mob">Come Join Us</div>
-                  <div className="Student_head2_mob">In Just 2 easy steps</div>
+                <div className="Student_pic col-md-6 col-12 d-flex align-items-center justify-content-center">
+                  <div className="Student_mobileShow">
+                    <img src={student} className="Student_img"></img>
+                    <div className="Student_head1">Come Join Us</div>
+                    <div className="Student_head2">In Just 2 easy steps</div>
+                  </div>
+                  <div className="Student_Mobilehide">
+                    <img src={student} className="Student_img"></img>
+                  </div>
                 </div>
-
-                <div className="Student_pic col-md-6 align-middle">
-                  <img src={student} className="Student_img"></img>
+                <div className="Student_footer_upcloud row Student_Mobilehide">
+                  <p>Powered by Upcloud Technology Pvt Ltd</p>
                 </div>
                 <div className="col-md-6 p-0 no-gutters">
-                  <div className="Student_head1" id="desktop">
+                  <div className="Student_head1 Student_Mobilehide">
                     Come Join Us
                   </div>
-                  <div className="Student_head2" id="desktop">
+                  <div className="Student_head2 Student_Mobilehide">
                     In Just 2 easy steps
                   </div>
                   <form>
@@ -251,7 +255,7 @@ export default class StudentForm extends React.Component {
                     </div>
                     <div className="form-row row2">
                       <textarea
-                        className="Student_add StudentMobile_mp"
+                        className="Student_add StudentMobile_mp Student_input"
                         name="address"
                         onChange={this.handleChange}
                         id="address"
@@ -446,6 +450,9 @@ export default class StudentForm extends React.Component {
                                     </div> */}
                   </form>
                 </div>
+                <div className="Student_footer_upcloudMobile row Student_mobileShow">
+                  <p>Powered by Upcloud Technology Pvt Ltd</p>
+                </div>
               </div>
             </div>
           )
@@ -454,19 +461,24 @@ export default class StudentForm extends React.Component {
         {this.state.secondDiv && (
           <div className="">
             <div className="row p-0 m-0 SFSecound_row">
-              <div className="mobile">
-                <img src={student} className="Student_img"></img>
-                <div className="Student_head_mob">Come Join Us</div>
-                <div className="Student_head2_mob">You are so Close</div>
+              <div className="Student_pic col-md-6 col-12 d-flex align-items-center justify-content-center">
+                <div className="Student_mobileShow">
+                  <img src={student} className="Student_img"></img>
+                  <div className="Student_head1">Come Join Us</div>
+                  <div className="Student_head2">In Just 2 easy steps</div>
+                </div>
+                <div className="Student_Mobilehide">
+                  <img src={student} className="Student_img"></img>
+                </div>
               </div>
-              <div className="Student_pic col-md-6 align-middle">
-                <img src={student} className="Student_img"></img>
+              <div className="Student_footer_upcloud row Student_Mobilehide">
+                <p>Powered by Upcloud Technology Pvt Ltd</p>
               </div>
               <div className="col-md-6 no-gutters" style={{ padding: "0px" }}>
-                <div className="Student_head1" id="desktop">
+                <div className="Student_head1 Student_Mobilehide">
                   Come Join Us
                 </div>
-                <div className="Student_head2" id="desktop">
+                <div className="Student_head2 Student_Mobilehide">
                   You are so close
                 </div>
                 <div className="form-row row1 StudentMobile_mp">
@@ -548,6 +560,9 @@ export default class StudentForm extends React.Component {
                 <div className="row form-row d-flex justify-content-end">
                   <img src={page2} className="Student_page2"></img>
                 </div>
+              </div>
+              <div className="Student_footer_upcloudMobile row Student_mobileShow">
+                <p>Powered by Upcloud Technology Pvt Ltd</p>
               </div>
             </div>
           </div>
